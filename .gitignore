@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# Datasets
+enron_mail_20110402.tgz
+enron_mail_20110402/
+enron_mail_20150507.tgz
+maildir/
+*.pkl
+emails_by_address/
+
+# Non-essential resources and scratch files
+DOS2UNIX.py
+test.py
+WORKING-outlier_removal_regression.py
+WORKING-outlier_removal_regression2.py
+svm_author_id-NAVTEST.py
+svm_author_id-SCRATCH.py
