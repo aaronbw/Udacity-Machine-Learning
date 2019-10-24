@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-
-
 def outlierCleaner(predictions, ages, net_worths):
     """
         clean away the 10% of points that have the largest
@@ -11,40 +8,15 @@ def outlierCleaner(predictions, ages, net_worths):
         each tuple is of the form (age, net_worth, error)
     """
  
-
-#     cleaned_data = []
-# 
-#     ### your code goes here
-#     import pandas as pd
-#     
-#     
-#     
-#     return cleaned_data
-
-
-    data = []
-    
-    size = len(predictions)
-    
-    for i in range(size):
-        error = (predictions[i][0] - net_worths[i][0]) * (predictions[i][0] - net_worths[i][0])
-        data.append((ages[i][0],
-                        net_worths[i][0],
-                        error))
-    
-    data.sort(key=lambda tup: tup[2])
+    # Find residual error
+    error = predictions - net_worths
     
     
-#     class Data_Length(object):
-#         def __index__(self):
-#             return int(len(data) * .9)
-# 
-# 
-#     data_length = Data_Length()
-#     print('data_length = ', data_length)
+    # Create a list of tuples and remove 10% of the points
+    # that have the largest residual errors
+    data = zip(ages, net_worths, error)
     
-    cleaned_data = data[:81]
-    print(len(cleaned_data))
-
+    cleaned_data = sorted(data, key=lambda x: x[2])
+    cleaned_data = cleaned_data[:81]
 
     return cleaned_data
